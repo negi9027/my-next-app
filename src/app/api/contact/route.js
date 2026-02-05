@@ -186,7 +186,7 @@ export async function POST(req) {
               <table role='presentation' style='width:94%;max-width:600px;border:none;border-spacing:0;text-align:left;font-size:1em;line-height:1.37em;color:#384049;'>
                 <tr>
                   <td style='padding:30px;background-color:white;'>
-                    <h1 style='margin-top:0;margin-bottom:1.1em;font-size:1.953em;line-height:1.3;font-weight:bold;letter-spacing:-0.02em;color:#314719;'>New Lead - Karma Ayurveda</h1>
+                    <h1 style='margin-top:0;margin-bottom:1.1em;font-size:1.953em;line-height:1.3;font-weight:bold;letter-spacing:-0.02em;color:#314719;'>International Lead - Karma Ayurveda</h1>
                     <h2 style='margin-top:0;margin-bottom:1.1em;font-size:1.1em;color:#314719;'>Namaste, Below are the details you have filled on our website regarding your problem.</h2>
                     <p style='margin:0;'>Hi ${name},</p>
                     <p>Name: ${name}</p>

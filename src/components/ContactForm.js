@@ -48,8 +48,20 @@ export default function ContactForm() {
   const [validationMsg, setValidationMsg] = useState("");
   const [diseases, setDiseases] = useState([]);
 
-  // Fetch diseases on mount
+  // Fetch user's country and diseases on mount
   useEffect(() => {
+    const fetchUserCountry = async () => {
+      try {
+        const res = await fetch("/api/get-user-country");
+        if (res.ok) {
+          const data = await res.json();
+          setFormData((prev) => ({ ...prev, countryCode: data.country_calling_code }));
+        }
+      } catch (error) {
+        console.error("Failed to fetch user country", error);
+      }
+    };
+
     const fetchDiseases = async () => {
       try {
         const res = await fetch("/api/diseases");
@@ -61,6 +73,8 @@ export default function ContactForm() {
         console.error("Failed to fetch diseases", error);
       }
     };
+
+    fetchUserCountry();
     fetchDiseases();
   }, []);
 
@@ -224,7 +238,7 @@ export default function ContactForm() {
         <div style={{ width: 80, marginRight: 10 }}>
           <Select
             options={countryOptions}
-            defaultValue={countryOptions.find((o) => o.value === "+91")}
+            value={countryOptions.find((o) => o.value === formData.countryCode)}
             onChange={handleCountrySelect}
             components={{ SingleValue, Option }}
             styles={customStyles}
