@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { FaSearch, FaEdit, FaTrash, FaPlus, FaImage } from "react-icons/fa";
+import RichTextEditor from "@/components/RichTextEditor";
 
 /**
  * Clinics admin page (client)
@@ -86,7 +87,20 @@ export default function ClinicsPage() {
   const paged = filtered.slice((page - 1) * perPage, page * perPage);
 
   // form helpers
-  const setField = (k, v) => setForm((s) => ({ ...s, [k]: v }));
+  const slugify = (text) => {
+    return text.toString().toLowerCase()
+      .trim()
+      .replace(/[\s\W-]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  };
+
+  const setField = (k, v) => setForm((s) => {
+    const updates = { ...s, [k]: v };
+    if (k === "name") {
+      updates.slug = slugify(v);
+    }
+    return updates;
+  });
 
   // preview images when chosen
   useEffect(() => {
@@ -255,7 +269,11 @@ export default function ClinicsPage() {
 
                   <div className="col-12">
                     <label className="form-label small">Services (HTML allowed)</label>
-                    <textarea name="services" value={form.services} onChange={(e) => setField("services", e.target.value)} className="form-control" rows={3} />
+                    <RichTextEditor
+                      value={form.services}
+                      onChange={(html) => setField("services", html)}
+                      placeholder="Enter clinic services..."
+                    />
                   </div>
 
                   {/* uploads */}

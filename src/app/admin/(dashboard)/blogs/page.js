@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { FaSearch, FaEdit, FaTrash, FaImage, FaPlus } from "react-icons/fa";
+import RichTextEditor from "@/components/RichTextEditor";
 
 /**
  * Admin Blog Manager - improved UI
@@ -91,8 +92,23 @@ export default function BlogPage() {
 
   const paged = filtered.slice((page - 1) * perPage, page * perPage);
 
-  const handleChange = (e) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const slugify = (text) => {
+    return text.toString().toLowerCase()
+      .trim()
+      .replace(/[\s\W-]+/g, '-') // Replace spaces and non-word chars with -
+      .replace(/^-+|-+$/g, '');  // Remove leading/trailing -
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm(prev => {
+      const updates = { ...prev, [name]: value };
+      if (name === "title") {
+        updates.slug = slugify(value);
+      }
+      return updates;
+    });
+  };
 
   const clearForm = () => {
     setForm(initialForm);
@@ -248,8 +264,13 @@ export default function BlogPage() {
 
                 <div className="mb-2">
                   <label className="form-label small">Content (HTML allowed)</label>
-                  <textarea name="content" value={form.content} onChange={handleChange} className="form-control" rows={6} />
+                  <RichTextEditor
+                    value={form.content}
+                    onChange={(html) => setForm({ ...form, content: html })}
+                    placeholder="Write your blog content here..."
+                  />
                 </div>
+
 
                 <div className="row gx-2">
                   <div className="col">
@@ -268,7 +289,7 @@ export default function BlogPage() {
                   <label className="form-label small">Feature image</label>
                   <div className="d-flex gap-2">
                     <input type="file" accept="image/*" onChange={handleImageUpload} className="form-control" />
-                    <button type="button" className="btn btn-outline-secondary" onClick={() => { setForm((s) => ({...s, image: ""})); }}>
+                    <button type="button" className="btn btn-outline-secondary" onClick={() => { setForm((s) => ({ ...s, image: "" })); }}>
                       Remove
                     </button>
                   </div>

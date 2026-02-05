@@ -4,6 +4,9 @@ import Image from "next/image";
 import NavbarClientBehavior from "./NavbarClientBehavior";
 import pool from "@/lib/db";
 
+// Force dynamic rendering to always fetch fresh data
+export const dynamic = 'force-dynamic';
+
 export default async function Navbar() {
   let groupedDiseases = {};
 
@@ -31,6 +34,9 @@ export default async function Navbar() {
       acc[category].push(d);
       return acc;
     }, {});
+
+    console.log('Navbar: Fetched diseases:', rows.length);
+    console.log('Navbar: Grouped categories:', Object.keys(groupedDiseases));
 
   } catch (err) {
     console.warn("Navbar DB Error:", err?.message || err);
@@ -67,103 +73,103 @@ export default async function Navbar() {
         </button>
 
 
-{/* MENU */}
-<div className="collapse navbar-collapse" id="navMenu">
-  <ul className="navbar-nav ms-auto align-items-lg-center">
+        {/* MENU */}
+        <div className="collapse navbar-collapse" id="navMenu">
+          <ul className="navbar-nav ms-auto align-items-lg-center">
 
-    <li className="nav-item">
-      <Link href="/" className="nav-link">Accueil</Link>
-    </li>
+            <li className="nav-item">
+              <Link href="/" className="nav-link">Accueil</Link>
+            </li>
 
-    <li className="nav-item">
-      <Link href="/about" className="nav-link">À propos</Link>
-    </li>
+            <li className="nav-item">
+              <Link href="/about" className="nav-link">À propos</Link>
+            </li>
 
-    {/* ===== DISEASE MEGA MENU ===== */}
-    <li className="nav-item dropdown dropdown-mega position-static">
-      <button
-        className="nav-link dropdown-toggle fw-semibold btn btn-link p-0"
-        type="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Maladies
-      </button>
+            {/* ===== DISEASE MEGA MENU ===== */}
+            <li className="nav-item dropdown dropdown-mega position-static">
+              <button
+                className="nav-link dropdown-toggle fw-semibold btn btn-link p-0"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Maladies
+              </button>
 
-      <div className="dropdown-menu w-100 border-0 shadow-lg mt-0">
-        <div className="container py-4">
-          <div className="row g-4">
+              <div className="dropdown-menu w-100 border-0 shadow-lg mt-0">
+                <div className="container py-4">
+                  <div className="row g-4">
 
-            {Object.keys(groupedDiseases).length === 0 ? (
-              <div className="col-12 text-muted">
-                Aucune maladie
-              </div>
-            ) : (
-              Object.entries(groupedDiseases).map(
-                ([category, items]) => (
-                  <div
-                    key={category}
-                    className="col-12 col-md-4 col-lg-3"
-                  >
-                    <h6 className="text-primary fw-bold border-bottom pb-2 mb-3">
-                      {category}
-                    </h6>
-
-                    <ul className="list-unstyled mb-0">
-                      {items.map((d) => (
-                        <li key={d.slug} className="mb-2">
-                          <Link
-                            href={`/disease/${d.slug}`}
-                            className="dropdown-item d-flex align-items-center rounded-3 px-2 py-2 disease-item"
-                          >
-                            {d.icon && (
-                              <Image
-                                src={`/uploads/diseases/${d.icon}`}
-                                alt={d.title}
-                                width={26}
-                                height={26}
-                                className="me-2 rounded-circle bg-light p-1"
-                              />
-                            )}
-                            <span>{d.title}</span>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {items.length > 0 && (
-                      <div className="mt-3">
-                        <Link href="/diseases" className="small text-primary d-block">
-                          Tout voir →
-                        </Link>
+                    {Object.keys(groupedDiseases).length === 0 ? (
+                      <div className="col-12 text-muted">
+                        Aucune maladie
                       </div>
+                    ) : (
+                      Object.entries(groupedDiseases).map(
+                        ([category, items]) => (
+                          <div
+                            key={category}
+                            className="col-12 col-md-4 col-lg-3"
+                          >
+                            <h6 className="text-primary fw-bold border-bottom pb-2 mb-3">
+                              {category}
+                            </h6>
+
+                            <ul className="list-unstyled mb-0">
+                              {items.map((d) => (
+                                <li key={d.slug} className="mb-2">
+                                  <Link
+                                    href={`/disease/${d.slug}`}
+                                    className="dropdown-item d-flex align-items-center rounded-3 px-2 py-2 disease-item"
+                                  >
+                                    {d.icon && (
+                                      <Image
+                                        src={`/uploads/diseases/${d.icon}`}
+                                        alt={d.title}
+                                        width={26}
+                                        height={26}
+                                        className="me-2 rounded-circle bg-light p-1"
+                                      />
+                                    )}
+                                    <span>{d.title}</span>
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+
+                            {items.length > 0 && (
+                              <div className="mt-3">
+                                <Link href="/diseases" className="small text-primary d-block">
+                                  Tout voir →
+                                </Link>
+                              </div>
+                            )}
+                          </div>
+                        )
+                      )
                     )}
+
                   </div>
-                )
-              )
-            )}
+                </div>
+              </div>
+            </li>
 
-          </div>
+            <li className="nav-item">
+              <Link href="/kidney-calculator" className="nav-link">Calculateur</Link>
+            </li>
+
+            <li className="nav-item">
+              <Link href="/blog" className="nav-link">Blog</Link>
+            </li>
+
+            <li className="nav-item ms-lg-2">
+              <Link href="/contact" className="btn btn-primary btn-sm px-3">
+                Contact
+              </Link>
+            </li>
+
+          </ul>
         </div>
-      </div>
-    </li>
-
-    <li className="nav-item">
-      <Link href="/kidney-calculator" className="nav-link">Calculateur</Link>
-    </li>
-
-    <li className="nav-item">
-      <Link href="/blog" className="nav-link">Blog</Link>
-    </li>
-
-    <li className="nav-item ms-lg-2">
-      <Link href="/contact" className="btn btn-primary btn-sm px-3">
-        Contact
-      </Link>
-    </li>
-
-  </ul>
-</div>
 
 
         {/* Client behavior: close menu on navigation / link click */}

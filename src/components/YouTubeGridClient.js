@@ -25,7 +25,7 @@ export default function YouTubeGridClient({ videos }) {
                 role="button"
                 className="position-absolute top-0 start-0 w-100 h-100"
                 style={{
-                  backgroundImage: `url(https://img.youtube.com/vi/${v.youtube_id}/hqdefault.jpg)`,
+                  backgroundImage: `url(${v.custom_thumbnail || `https://img.youtube.com/vi/${v.youtube_id}/hqdefault.jpg`})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   cursor: "pointer",

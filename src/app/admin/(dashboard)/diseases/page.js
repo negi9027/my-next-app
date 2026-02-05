@@ -4,6 +4,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { FaEdit, FaTrash, FaPlus, FaImage, FaSearch } from "react-icons/fa";
+import RichTextEditor from "@/components/RichTextEditor";
 
 /**
  * Admin Diseases Page
@@ -35,7 +36,7 @@ export default function DiseasesPage() {
     meta_keywords: "",
     status: "active",
   };
-const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [form, setForm] = useState(initialForm);
   const [faqs, setFaqs] = useState([{ q: "", a: "" }]);
   const [loading, setLoading] = useState(false);
@@ -61,11 +62,11 @@ const [categories, setCategories] = useState([]);
     }
   };
 
-useEffect(() => {
-  fetch("/api/admin/disease-categories")
-    .then(res => res.json())
-    .then(setCategories);
-}, []);
+  useEffect(() => {
+    fetch("/api/admin/disease-categories")
+      .then(res => res.json())
+      .then(setCategories);
+  }, []);
 
 
   useEffect(() => {
@@ -90,7 +91,20 @@ useEffect(() => {
 
   const paged = filtered.slice((page - 1) * perPage, page * perPage);
 
-  const setField = (k, v) => setForm((s) => ({ ...s, [k]: v }));
+  const slugify = (text) => {
+    return text.toString().toLowerCase()
+      .trim()
+      .replace(/[\s\W-]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  };
+
+  const setField = (k, v) => setForm((s) => {
+    const updates = { ...s, [k]: v };
+    if (k === "title") {
+      updates.slug = slugify(v);
+    }
+    return updates;
+  });
 
   const uploadFile = async (e, field) => {
     const file = e.target.files?.[0];
@@ -227,7 +241,7 @@ useEffect(() => {
             />
           </div>
 
-          <button className="btn btn-outline-primary" onClick={() => { clearForm(); window.scrollTo({top:0, behavior:'smooth'}); }}>
+          <button className="btn btn-outline-primary" onClick={() => { clearForm(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
             <FaPlus className="me-1" /> New
           </button>
         </div>
@@ -281,12 +295,20 @@ useEffect(() => {
 
                   <div className="col-12 col-md-6">
                     <label className="form-label small">Symptoms (HTML allowed)</label>
-                    <textarea name="symptoms" value={form.symptoms} onChange={(e) => setField("symptoms", e.target.value)} className="form-control" rows={4} />
+                    <RichTextEditor
+                      value={form.symptoms}
+                      onChange={(html) => setField("symptoms", html)}
+                      placeholder="Enter disease symptoms..."
+                    />
                   </div>
 
                   <div className="col-12 col-md-6">
                     <label className="form-label small">Tips (HTML allowed)</label>
-                    <textarea name="tips" value={form.tips} onChange={(e) => setField("tips", e.target.value)} className="form-control" rows={4} />
+                    <RichTextEditor
+                      value={form.tips}
+                      onChange={(html) => setField("tips", html)}
+                      placeholder="Enter health tips..."
+                    />
                   </div>
 
                   {/* Uploads */}
@@ -436,7 +458,7 @@ useEffect(() => {
 
                   {/* pagination */}
                   <div className="d-flex justify-content-between align-items-center mt-3">
-                    <div className="small text-muted">Showing {Math.min(filtered.length, (page-1)*perPage + 1)} - {Math.min(filtered.length, page*perPage)} of {filtered.length}</div>
+                    <div className="small text-muted">Showing {Math.min(filtered.length, (page - 1) * perPage + 1)} - {Math.min(filtered.length, page * perPage)} of {filtered.length}</div>
                     <div className="btn-group">
                       <button className="btn btn-sm btn-outline-secondary" disabled={page <= 1} onClick={() => setPage((p) => Math.max(1, p - 1))}>Prev</button>
                       <button className="btn btn-sm btn-outline-secondary" disabled={page >= totalPages} onClick={() => setPage((p) => Math.min(totalPages, p + 1))}>Next</button>

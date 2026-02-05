@@ -6,7 +6,7 @@ const safe = (v) => (v === undefined || v === "" ? null : v);
 export async function GET() {
   const conn = await pool.getConnection();
   const [rows] = await conn.execute(
-    "SELECT * FROM testimonials ORDER BY id DESC"
+    "SELECT * FROM testimonials ORDER BY position ASC, id DESC"
   );
   conn.release();
   return new Response(JSON.stringify(rows), { status: 200 });
@@ -20,8 +20,8 @@ export async function POST(req) {
 
     await conn.execute(
       `INSERT INTO testimonials
-      (name, disease, message, rating, location, image, status)
-      VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      (name, disease, message, rating, location, image, status, position)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         safe(data.name),
         safe(data.disease),
@@ -30,6 +30,7 @@ export async function POST(req) {
         safe(data.location),
         safe(data.image),
         safe(data.status || "active"),
+        safe(data.position || 0),
       ]
     );
 

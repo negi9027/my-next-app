@@ -12,12 +12,12 @@ export async function GET() {
 
 /* POST */
 export async function POST(req) {
-  const { title, youtube_id, position, is_enabled } = await req.json();
+  const { title, youtube_id, custom_thumbnail, position, is_enabled } = await req.json();
 
   const conn = await pool.getConnection();
   await conn.execute(
-    "INSERT INTO youtube_videos (title, youtube_id, position, is_enabled) VALUES (?,?,?,?)",
-    [title, youtube_id, position || 0, is_enabled ? 1 : 0]
+    "INSERT INTO youtube_videos (title, youtube_id, custom_thumbnail, position, is_enabled) VALUES (?,?,?,?,?)",
+    [title, youtube_id, custom_thumbnail || null, position || 0, is_enabled ? 1 : 0]
   );
   conn.release();
 
@@ -26,12 +26,12 @@ export async function POST(req) {
 
 /* PUT */
 export async function PUT(req) {
-  const { id, title, youtube_id, position, is_enabled } = await req.json();
+  const { id, title, youtube_id, custom_thumbnail, position, is_enabled } = await req.json();
 
   const conn = await pool.getConnection();
   await conn.execute(
-    `UPDATE youtube_videos SET title=?, youtube_id=?, position=?, is_enabled=? WHERE id=?`,
-    [title, youtube_id, position, is_enabled ? 1 : 0, id]
+    `UPDATE youtube_videos SET title=?, youtube_id=?, custom_thumbnail=?, position=?, is_enabled=? WHERE id=?`,
+    [title, youtube_id, custom_thumbnail || null, position, is_enabled ? 1 : 0, id]
   );
   conn.release();
 

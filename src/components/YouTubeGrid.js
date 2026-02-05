@@ -5,7 +5,7 @@ export default async function YouTubeGrid() {
   try {
     const conn = await pool.getConnection();
     const [videos] = await conn.execute(
-      "SELECT id, title, youtube_id FROM youtube_videos WHERE is_enabled=1 ORDER BY position ASC"
+      "SELECT id, title, youtube_id, custom_thumbnail FROM youtube_videos WHERE is_enabled=1 ORDER BY position ASC"
     );
     conn.release();
 
