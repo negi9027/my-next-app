@@ -1,9 +1,9 @@
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "About Karma Ayurveda — My Health Site",
+  title: "À propos de Karma Ayurveda — Mon site santé",
   description:
-    "Learn about Karma Ayurveda, its legacy, mission, vision, and holistic Ayurvedic treatment approach for various health disorders.",
+    "Découvrez Karma Ayurveda, son héritage, sa mission et son approche ayurvédique naturelle pour la santé.",
 };
 
 export default function About() {
@@ -18,20 +18,20 @@ export default function About() {
         }}
       >
         <div className="container">
-          <h1 className="fw-bold display-6 mb-2">About Karma Ayurveda</h1>
+          <h1 className="fw-bold display-6 mb-2">À propos de Karma Ayurveda</h1>
           <p className="opacity-75 mb-3">
-            80+ Years of Trusted Ayurvedic Healing
+            Plus de 80 ans de soins ayurvédiques de confiance
           </p>
 
           <nav>
             <ul className="list-inline mb-0">
               <li className="list-inline-item">
                 <a href="/" className="text-white text-decoration-none">
-                  Home
+                  Accueil
                 </a>
               </li>
               <li className="list-inline-item">/</li>
-              <li className="list-inline-item opacity-75">About Us</li>
+              <li className="list-inline-item opacity-75">À propos</li>
             </ul>
           </nav>
         </div>
@@ -45,21 +45,19 @@ export default function About() {
             {/* LEFT CONTENT */}
             <div className="col-lg-7">
               <h2 className="fw-bold mb-3">
-                Karma Ayurveda – A Legacy of{" "}
-                <span className="text-primary">Natural Healing</span>
+                Karma Ayurveda – Une tradition de{" "}
+                <span className="text-primary">soins naturels</span>
               </h2>
 
               <p className="text-muted">
-                Established in 1937, Karma Ayurveda carries a rich legacy of
-                over eight decades in Ayurvedic healthcare. Led by Dr. Puneet
-                Dhawan, a fifth-generation Ayurvedic expert, we continue to
-                deliver authentic and ethical Ayurvedic treatment.
+                Fondée en 1937, Karma Ayurveda s’appuie sur plusieurs décennies
+                d’expérience en médecine ayurvédique, sous la direction du
+                Dr Puneet Dhawan.
               </p>
 
               <p className="text-muted">
-                While globally known for kidney treatment, Karma Ayurveda has
-                evolved into a holistic healthcare center treating multiple
-                chronic disorders naturally.
+                Reconnue pour ses soins rénaux, la clinique adopte aujourd’hui
+                une approche globale pour les maladies chroniques.
               </p>
             </div>
 
@@ -67,11 +65,10 @@ export default function About() {
             <div className="col-lg-5">
               <div className="card border-0 shadow-sm rounded-4">
                 <div className="card-body p-4">
-                  <h5 className="fw-bold mb-3">Ayurvedic Philosophy</h5>
+                  <h5 className="fw-bold mb-3">Philosophie ayurvédique</h5>
                   <p className="text-muted mb-0">
-                    Ayurveda believes diseases arise from dosha imbalance.
-                    Treatment restores balance using herbs, detox therapies,
-                    diet, and lifestyle correction.
+                    L’Ayurveda vise à rétablir l’équilibre du corps par des
+                    plantes, la détoxification, l’alimentation et le mode de vie.
                   </p>
                 </div>
               </div>
@@ -85,15 +82,15 @@ export default function About() {
       <section className="py-5 bg-light">
         <div className="container">
           <h2 className="fw-bold text-center mb-4">
-            Why Choose Karma Ayurveda?
+            Pourquoi choisir Karma Ayurveda ?
           </h2>
 
           <div className="row g-4">
             {[
-              "Personalized Treatment Plans",
-              "Expert Diet & Lifestyle Guidance",
-              "Advanced Ayurvedic Therapies",
-              "Continuous Patient Follow-up",
+              "Soins personnalisés",
+              "Conseils alimentaires",
+              "Thérapies ayurvédiques",
+              "Suivi patient continu",
             ].map((item, index) => (
               <div className="col-md-6 col-lg-3" key={index}>
                 <div className="card h-100 border-0 shadow-sm rounded-4 text-center">
@@ -112,17 +109,17 @@ export default function About() {
       <section className="py-5">
         <div className="container">
           <h2 className="fw-bold text-center mb-4">
-            Treatment Key Features
+            Points clés du traitement
           </h2>
 
           <div className="row justify-content-center">
             <div className="col-lg-8">
               <ul className="list-group shadow-sm rounded-4 overflow-hidden">
                 {[
-                  "100% Herbal & Chemical-Free Treatment",
-                  "Root-Cause Based Healing",
-                  "Diet & Lifestyle Modification",
-                  "Post-Treatment Monitoring",
+                  "Traitement 100 % naturel",
+                  "Approche ciblant la cause",
+                  "Adaptation du mode de vie",
+                  "Suivi après traitement",
                 ].map((item, index) => (
                   <li key={index} className="list-group-item py-3">
                     ✅ {item}
@@ -142,10 +139,9 @@ export default function About() {
             <div className="col-md-6">
               <div className="card h-100 border-0 shadow-sm rounded-4">
                 <div className="card-body p-4">
-                  <h4 className="fw-bold">Our Mission</h4>
+                  <h4 className="fw-bold">Notre mission</h4>
                   <p className="text-muted mb-0">
-                    To provide ethical, personalized, and long-term healing
-                    through authentic Ayurvedic treatment.
+                    Offrir des soins ayurvédiques éthiques et personnalisés.
                   </p>
                 </div>
               </div>
@@ -154,10 +150,9 @@ export default function About() {
             <div className="col-md-6">
               <div className="card h-100 border-0 shadow-sm rounded-4">
                 <div className="card-body p-4">
-                  <h4 className="fw-bold">Our Vision</h4>
+                  <h4 className="fw-bold">Notre vision</h4>
                   <p className="text-muted mb-0">
-                    To combine ancient Ayurvedic wisdom with modern science and
-                    make natural healing accessible worldwide.
+                    Rendre la guérison naturelle accessible à tous.
                   </p>
                 </div>
               </div>
@@ -170,27 +165,7 @@ export default function About() {
       {/* ================= GALLERY ================= */}
       <section className="py-5">
         <div className="container">
-          <h2 className="fw-bold text-center mb-4">Our Gallery</h2>
-        </div>
-
-        <div className="container-fluid">
-          <div className="row g-0">
-            {[
-              "awards2.webp",
-              "awards3.webp",
-              "awards4.webp",
-              "awards5.webp",
-            ].map((img, index) => (
-              <div className="col-lg-3 col-md-4" key={index}>
-                <img
-                  src={`https://www.karmaayurvedausa.com/assets/image/gallery/${img}`}
-                  alt="Karma Ayurveda Awards"
-                  className="img-fluid gallery-img"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
+          <h2 className="fw-bold text-center mb-4">Galerie</h2>
         </div>
       </section>
 

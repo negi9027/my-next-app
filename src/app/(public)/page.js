@@ -57,10 +57,10 @@ export default async function Home() {
     {/* ===== Top Heading ===== */}
     <div className="text-center mb-5">
       <h1 className="display-5 fw-bold text-primary">
-        Your Trusted Kidney Health Guide
+        Votre guide de confiance pour la santé des reins
       </h1>
       <p className="lead text-muted mt-2">
-        Understand kidney diseases, get expert guidance, and connect with trusted clinics.
+        Comprenez les maladies rénales, obtenez des conseils d’experts et connectez-vous avec des cliniques fiables.
       </p>
     </div>
 
@@ -70,16 +70,16 @@ export default async function Home() {
       {/* ===== Left Content ===== */}
       <div className="col-lg-4 text-lg-start text-center hero-left">
         <h2 className="fw-bold mb-3">
-          Simple, Reliable & Doctor-Backed Information
+          Des informations simples, fiables et validées par des médecins
         </h2>
         <p className="text-muted mb-4">
-          Learn symptoms, causes, diet tips and natural treatment options
-          explained in an easy-to-understand way.
+          Découvrez les symptômes, les causes, les conseils alimentaires
+          et les options de traitements naturels expliqués de manière claire et compréhensible.
         </p>
 
         <div className="d-flex gap-2 justify-content-lg-start justify-content-center">
           <Link href="/about" className="btn btn-outline-primary btn-lg">
-            Learn More
+            En savoir plus
           </Link>
 
           {diseases && diseases[0] && (
@@ -87,7 +87,7 @@ export default async function Home() {
               href={`/disease/${diseases[0].slug}`}
               className="btn btn-primary btn-lg"
             >
-              Disease Guide
+              Guide des maladies
             </Link>
           )}
         </div>
@@ -97,7 +97,7 @@ export default async function Home() {
       <div className="col-lg-4 text-center">
         <img
           src="/images/kidney-hero2.png"
-          alt="Human Kidney Illustration"
+          alt="Illustration du rein humain"
           className="img-fluid hero-img"
           style={{
             maxHeight: "360px",
@@ -117,62 +117,63 @@ export default async function Home() {
   </div>
 </section>
 
+
 {/* ================= FREE CONSULTATION CTA ================= */}
 <section
   className="py-4"
   style={{
-    background: "linear-gradient(90deg, #032b4f, #02203a)",
+    background: "linear-gradient(90deg, #436f96, #02203a)",
   }}
 >
-  <div className="container">
-    <div className="row align-items-center g-3 text-center text-md-start">
+ <div className="container">
+  <div className="row align-items-center g-3 text-center text-md-start">
 
-      {/* ===== FLAG ===== */}
-      <div className="col-md-2 d-flex justify-content-center justify-content-md-start">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
-          alt="USA Flag"
-          loading="lazy"
-          className="flag-img"
-          style={{
-            width: 90,
-            borderRadius: 6,
-            boxShadow: "0 6px 15px rgba(0,0,0,0.25)",
-          }}
-        />
-      </div>
-
-      {/* ===== TEXT ===== */}
-      <div className="col-md-7">
-        <h3 className="mb-1 text-white fw-bold">
-          Book Your Free Consultation
-        </h3>
-        <p className="mb-0 text-light">
-          Talk to our expert kidney specialists and get personalized guidance
-          for your treatment plan.
-        </p>
-      </div>
-
-      {/* ===== ACTION ===== */}
-      <div className="col-md-3 text-center text-md-end">
-        <a
-          href="/contact"
-          rel="nofollow"
-          className="btn btn-warning fw-bold px-4 py-2"
-          style={{
-            borderRadius: 10,
-            boxShadow: "0 6px 15px rgba(0,0,0,0.25)",
-          }}
-        >
-          BOOK NOW
-        </a>
-        <div className="small text-light mt-1">
-          Don’t Delay Your Kidney Treatment
-        </div>
-      </div>
-
+    {/* ===== FLAG ===== */}
+    <div className="col-md-2 d-flex justify-content-center justify-content-md-start">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg"
+        alt="France Flag"
+        loading="lazy"
+        className="flag-img"
+        style={{
+          width: 90,
+          borderRadius: 6,
+          boxShadow: "0 6px 15px rgba(0,0,0,0.25)",
+        }}
+      />
     </div>
+
+    {/* ===== TEXT ===== */}
+    <div className="col-md-7">
+      <h3 className="mb-1 text-white fw-bold">
+        Consultation gratuite
+      </h3>
+      <p className="mb-0 text-light">
+        Parlez à un spécialiste des reins.
+      </p>
+    </div>
+
+    {/* ===== ACTION ===== */}
+    <div className="col-md-3 text-center text-md-end">
+      <a
+        href="/contact"
+        rel="nofollow"
+        className="btn btn-warning fw-bold px-4 py-2"
+        style={{
+          borderRadius: 10,
+          boxShadow: "0 6px 15px rgba(0,0,0,0.25)",
+        }}
+      >
+        RÉSERVER
+      </a>
+      <div className="small text-light mt-1">
+        N’attendez pas
+      </div>
+    </div>
+
   </div>
+</div>
+
 
   {/* ================= STYLE ================= */}
   <style>{`
@@ -190,100 +191,72 @@ export default async function Home() {
   className="py-5"
   style={{ background: "#f8fbff" }}
 >
-  <div className="container">
+<div className="container">
 
-    {/* Heading */}
-    <div className="mb-4">
-      <h2 className="fw-bold text-start">
-        A Trusted Hospital for Safe &amp; Natural Kidney Healing
-      </h2>
-    </div>
-
-    <div className="row align-items-center g-4">
-
-      {/* ================= LEFT CONTENT ================= */}
-      <div className="col-md-7">
-        <p>
-          Karma Ayurveda USA, from humble beginnings, has evolved into a
-          multi-speciality healthcare institution with a unique natural kidney
-          healing program that aims at healing and rejuvenating kidneys via
-          natural methods. Currently led by{" "}
-          <a
-            href="https://www.karmaayurvedausa.com/doctor"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Dr Puneet Dhawan
-          </a>
-          , the hospital has achieved exceptionally high success rates through a
-          holistic approach and its integration with modern sciences.
-        </p>
-
-        <p>
-          With over <strong>84 years of expertise</strong>, we have redefined
-          health dynamics. We specialise in treating a wide array of diseases
-          through{" "}
-          <a
-            href="https://www.karmaayurvedausa.com/kidney-diseases"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            unique natural therapies
-          </a>{" "}
-          like Panchakarma, Virechanam, Vamanan, and many more.
-        </p>
-
-        <p>
-          As a specialised Ayurvedic kidney care hospital, we offer treatments
-          for various lifestyle diseases and chronic disorders. Our team is
-          well-versed in all the intricacies of{" "}
-          <a
-            href="https://www.karmaayurvedausa.com/blog/top-10-natural-ways-to-reduce-chronic-kidney-disease-naturally"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            natural kidney healing
-          </a>{" "}
-          techniques.
-        </p>
-
-        <p>
-          Certified by <strong>NABH &amp; FDA</strong>, Karma Ayurveda USA has
-          in-house laboratories ensuring careful analysis of natural products.
-          This transparent approach enhances patient trust and overall healing
-          experience.
-        </p>
-
-        {/* CTA */}
-        <a
-          href="#contact"
-          className="btn btn-lg mt-3"
-          style={{
-            backgroundColor: "#ff8a00",
-            borderColor: "#ff8a00",
-            color: "#fff",
-          }}
-        >
-          Enquire Now
-        </a>
-      </div>
-
-      {/* ================= RIGHT IMAGE ================= */}
-      <div className="col-md-5 text-center">
-        <img
-          loading="lazy"
-          src="https://www.karmaayurvedausa.com/assets/serve_static.php?file=image/about-3-2.gif"
-          alt="Karma Ayurveda USA - FDA Approved"
-          className="img-fluid"
-          style={{
-            maxWidth: "420px",
-            filter: "drop-shadow(0 15px 25px rgba(0,0,0,0.15))",
-          }}
-        />
-      </div>
-
-    </div>
+  {/* Heading */}
+  <div className="mb-4">
+    <h2 className="fw-bold text-start">
+      Un hôpital de confiance pour la guérison naturelle des reins
+    </h2>
   </div>
+
+  <div className="row align-items-center g-4">
+
+    {/* ================= LEFT CONTENT ================= */}
+    <div className="col-md-7">
+      <p>
+        Karma Ayurveda USA est un hôpital spécialisé dans les soins naturels des
+        reins, combinant l’Ayurveda et la science moderne sous la direction de{" "}
+        <a
+          href="https://www.karmaayurvedausa.com/doctor"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Dr Puneet Dhawan
+        </a>.
+      </p>
+
+      <p>
+        Forts de plus de <strong>84 ans d’expertise</strong>, nous traitons les
+        maladies rénales grâce à des thérapies naturelles éprouvées.
+      </p>
+
+      <p>
+        Certifié <strong>NABH &amp; FDA</strong>, notre hôpital garantit des soins
+        sûrs, transparents et centrés sur le patient.
+      </p>
+
+      {/* CTA */}
+      <a
+        href="#contact"
+        className="btn btn-lg mt-3"
+        style={{
+          backgroundColor: "#ff8a00",
+          borderColor: "#ff8a00",
+          color: "#fff",
+        }}
+      >
+        Demander un avis
+      </a>
+    </div>
+
+    {/* ================= RIGHT IMAGE ================= */}
+    <div className="col-md-5 text-center">
+      <img
+        loading="lazy"
+        src="https://www.karmaayurvedausa.com/assets/serve_static.php?file=image/about-3-2.gif"
+        alt="Karma Ayurveda USA - Certifié FDA"
+        className="img-fluid"
+        style={{
+          maxWidth: "420px",
+          filter: "drop-shadow(0 15px 25px rgba(0,0,0,0.15))",
+        }}
+      />
+    </div>
+
+  </div>
+</div>
+
 
   {/* Small style tweaks */}
   <style>{`
@@ -317,7 +290,7 @@ export default async function Home() {
       <div className="col-lg-4 text-center">
         <img
           src="/images/Dr.puneet-dhawan.jpg"
-          alt="Kidney Care Experts"
+          alt="Experts en soins rénaux"
           className="img-fluid rounded-4 shadow"
           style={{ maxHeight: "420px" }}
         />
@@ -326,57 +299,56 @@ export default async function Home() {
       {/* ===== Right Content ===== */}
       <div className="col-lg-8">
         <span className="badge bg-primary mb-3 px-3 py-2">
-          About Us
+          À propos de nous
         </span>
 
         <h2 className="fw-bold mb-3">
-          Trusted Kidney Care Guidance for Better Life
+          Un accompagnement fiable pour une meilleure santé des reins
         </h2>
 
         <p className="text-muted mb-3">
-          We are dedicated to providing reliable, easy-to-understand kidney
-          health information for patients and families. Our goal is to help
-          people understand kidney diseases, treatment options, diet plans,
-          and lifestyle changes without confusion.
+          Nous nous engageons à fournir des informations claires, fiables et
+          faciles à comprendre sur la santé rénale, afin d’aider les patients
+          et leurs proches à mieux comprendre les maladies des reins.
         </p>
 
         <p className="text-muted mb-4">
-          With years of experience in kidney health awareness, we bridge the
-          gap between medical knowledge and everyday understanding — so you
-          can make informed decisions with confidence.
+          Grâce à notre expérience en sensibilisation à la santé rénale, nous
+          rendons les informations médicales accessibles au quotidien, pour
+          vous permettre de prendre des décisions éclairées en toute confiance.
         </p>
 
         {/* ===== Highlights ===== */}
         <div className="row g-3 mb-4">
           <div className="col-6 d-flex align-items-center">
             <span className="me-2 text-primary fs-4">✔</span>
-            <span>Doctor-Verified Content</span>
+            <span>Contenu validé par des médecins</span>
           </div>
 
           <div className="col-6 d-flex align-items-center">
             <span className="me-2 text-primary fs-4">✔</span>
-            <span>Patient-Friendly Language</span>
+            <span>Langage simple et compréhensible</span>
           </div>
 
           <div className="col-6 d-flex align-items-center">
             <span className="me-2 text-primary fs-4">✔</span>
-            <span>Diet & Lifestyle Guidance</span>
+            <span>Conseils sur l’alimentation et le mode de vie</span>
           </div>
 
           <div className="col-6 d-flex align-items-center">
             <span className="me-2 text-primary fs-4">✔</span>
-            <span>Trusted Clinics Network</span>
+            <span>Réseau de cliniques de confiance</span>
           </div>
         </div>
 
         {/* ===== CTA ===== */}
         <div className="d-flex gap-3">
           <Link href="/about" className="btn btn-primary btn-lg">
-            Know More
+            En savoir plus
           </Link>
 
           <Link href="/contact" className="btn btn-outline-primary btn-lg">
-            Contact Us
+            Nous contacter
           </Link>
         </div>
       </div>
@@ -384,7 +356,6 @@ export default async function Home() {
     </div>
   </div>
 </section>
-
 
 
    <TestimonialSlider />
@@ -420,7 +391,7 @@ export default async function Home() {
 
       {/* 🎯 CENTER IMAGE */}
       <img
-        src="https://www.karmaayurvedausa.com/assets/image/2.png"
+        src="/images/france.png"
         alt="Certification Badge"
         className="stamp-center"
       />
@@ -432,89 +403,90 @@ export default async function Home() {
 
       {/* ================= RIGHT CONTENT ================= */}
       <div className="col-md-8">
-        <h2 className="fw-bold mb-3">
-          Why Choose Karma Ayurveda?
-        </h2>
+      <h2 className="fw-bold mb-3">
+  Pourquoi choisir Karma Ayurveda ?
+</h2>
 
-        <p className="text-muted mb-4">
-          Choosing Ayurveda as a healthcare and wellness approach is a personal
-          decision that depends on your individual needs, beliefs, and
-          preferences. Ayurveda is an ancient system of medicine that originated
-          in India over 5,000 years ago, and it continues to be practiced and
-          valued by many individuals around the world.
-        </p>
+<p className="text-muted mb-4">
+  Choisir l’Ayurveda est une décision personnelle, basée sur vos besoins et
+  votre approche du bien-être. Cette médecine traditionnelle, pratiquée depuis
+  des milliers d’années, aide de nombreuses personnes à mieux comprendre leur
+  corps et à prendre soin de leur santé de manière naturelle.
+</p>
+
 
         {/* ================= FEATURES ================= */}
-        <div className="row g-3">
+<div className="row g-3">
 
-          <div className="col-6 col-md-3">
-            <div className="card text-center h-100 shadow-sm border-0">
-              <div className="card-body">
-                <img
-                  src="https://www.karmaayurvedausa.com/assets/image/why2.webp"
-                  alt="100% authentic and natural"
-                  className="img-fluid mb-2"
-                  style={{ maxHeight: 80 }}
-                />
-                <p className="small fw-semibold mb-0">
-                  100% authentic <br /> and natural
-                </p>
-              </div>
-            </div>
-          </div>
+  <div className="col-6 col-md-3">
+    <div className="card text-center h-100 shadow-sm border-0">
+      <div className="card-body">
+        <img
+          src="https://www.karmaayurvedausa.com/assets/image/why2.webp"
+          alt="100% authentique et naturel"
+          className="img-fluid mb-2"
+          style={{ maxHeight: 80 }}
+        />
+        <p className="small fw-semibold mb-0">
+          100 % naturel <br /> et authentique
+        </p>
+      </div>
+    </div>
+  </div>
 
-          <div className="col-6 col-md-3">
-            <div className="card text-center h-100 shadow-sm border-0">
-              <div className="card-body">
-                <img
-                  src="https://www.karmaayurvedausa.com/assets/image/why1.webp"
-                  alt="Natural and Non-Invasive"
-                  className="img-fluid mb-2"
-                  style={{ maxHeight: 80 }}
-                />
-                <p className="small fw-semibold mb-0">
-                  Natural & <br /> Non-Invasive
-                </p>
-              </div>
-            </div>
-          </div>
+  <div className="col-6 col-md-3">
+    <div className="card text-center h-100 shadow-sm border-0">
+      <div className="card-body">
+        <img
+          src="https://www.karmaayurvedausa.com/assets/image/why1.webp"
+          alt="Naturel et non invasif"
+          className="img-fluid mb-2"
+          style={{ maxHeight: 80 }}
+        />
+        <p className="small fw-semibold mb-0">
+          Naturel & <br /> non invasif
+        </p>
+      </div>
+    </div>
+  </div>
 
-          <div className="col-6 col-md-3">
-            <div className="card text-center h-100 shadow-sm border-0">
-              <div className="card-body">
-                <img
-                  src="https://www.karmaayurvedausa.com/assets/image/why3.webp"
-                  alt="Time tested tradition"
-                  className="img-fluid mb-2"
-                  style={{ maxHeight: 80 }}
-                />
-                <p className="small fw-semibold mb-0">
-                  Time-Tested <br /> Tradition
-                </p>
-              </div>
-            </div>
-          </div>
+  <div className="col-6 col-md-3">
+    <div className="card text-center h-100 shadow-sm border-0">
+      <div className="card-body">
+        <img
+          src="https://www.karmaayurvedausa.com/assets/image/why3.webp"
+          alt="Tradition éprouvée"
+          className="img-fluid mb-2"
+          style={{ maxHeight: 80 }}
+        />
+        <p className="small fw-semibold mb-0">
+          Tradition <br /> éprouvée
+        </p>
+      </div>
+    </div>
+  </div>
 
-          <div className="col-6 col-md-3">
-            <div className="card text-center h-100 shadow-sm border-0">
-              <div className="card-body">
-                <img
-                  src="https://www.karmaayurvedausa.com/assets/image/NABH-Logo.webp"
-                  alt="NABH Certified"
-                  className="img-fluid mb-2"
-                  style={{ maxHeight: 80 }}
-                />
-                <p className="small fw-semibold mb-0">
-                  Certificate no-AH-2023-0186 <br />
-                  <span className="text-muted">
-                    Jan 2023 – Jan 2026
-                  </span>
-                </p>
-              </div>
-            </div>
-          </div>
+  <div className="col-6 col-md-3">
+    <div className="card text-center h-100 shadow-sm border-0">
+      <div className="card-body">
+        <img
+          src="https://www.karmaayurvedausa.com/assets/image/NABH-Logo.webp"
+          alt="Certifié NABH"
+          className="img-fluid mb-2"
+          style={{ maxHeight: 80 }}
+        />
+        <p className="small fw-semibold mb-0">
+          Certifié NABH <br />
+          <span className="text-muted">
+            2023 – 2026
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
 
-        </div>
+</div>
+
       </div>
 
     </div>
@@ -549,7 +521,7 @@ export default async function Home() {
 
 .stamp-center {
   position: absolute;
-  width: 240px;
+  width: 210px;
   height: auto;
 }
 
@@ -584,7 +556,6 @@ export default async function Home() {
 
  {/*============= Recent Blogs ================== */}
   <RecentBlogs />
-
 {/* ================= CONTACT CTA ================= */}
 <section className="mb-5">
   <div
@@ -600,24 +571,23 @@ export default async function Home() {
       {/* ===== Left Content ===== */}
       <div className="col-lg-8 text-lg-start text-center">
         <h2 className="fw-bold mb-2">
-          Need Help? Talk to Kidney Health Experts
+          Besoin d’aide ? Parlez à des experts rénaux
         </h2>
 
         <p className="fs-5 opacity-90 mb-4">
-          Get personalized guidance based on your reports, symptoms
-          and condition — absolutely free consultation.
+          Conseils personnalisés selon votre situation — consultation gratuite.
         </p>
 
         {/* Trust Points */}
         <div className="d-flex flex-wrap gap-3 mb-4 justify-content-lg-start justify-content-center">
           <span className="badge bg-light text-primary px-3 py-2">
-            ✔ Doctor Guided
+            ✔ Suivi médical
           </span>
           <span className="badge bg-light text-primary px-3 py-2">
-            ✔ No Cost Consultation
+            ✔ Gratuit
           </span>
           <span className="badge bg-light text-primary px-3 py-2">
-            ✔ Confidential & Safe
+            ✔ Confidentiel
           </span>
         </div>
 
@@ -627,14 +597,14 @@ export default async function Home() {
             href="/contact"
             className="btn btn-light btn-lg fw-semibold"
           >
-            Book Free Consultation
+            Consultation gratuite
           </Link>
 
           <a
             href="tel:+919999999999"
             className="btn btn-outline-light btn-lg"
           >
-            Call Now
+            Appeler
           </a>
         </div>
       </div>
@@ -643,7 +613,7 @@ export default async function Home() {
       <div className="col-lg-4 text-center d-none d-lg-block">
         <img
           src="/images/kidney-hero2.png"
-          alt="Doctor Consultation"
+          alt="Consultation médicale"
           className="img-fluid"
           style={{
             maxHeight: "220px",
@@ -703,7 +673,7 @@ export default async function Home() {
           .hero h1.display-5 { font-size: 1.6rem; }
           .hero h2 { font-size: 1.05rem; }
           .stamp-wrapper { width: 140px; height: 140px; }
-          .stamp-center { width: 140px; }
+          .stamp-center { width: 210px; }
           .stamp-rotate { width: 100%; height: 100%; }
           #about p { font-size: .95rem; line-height: 1.6; }
           #why-us .card-body img { max-height: 60px; }

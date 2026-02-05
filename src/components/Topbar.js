@@ -10,7 +10,7 @@ export default function Topbar() {
   return (
     <>
       {/* TOPBAR */}
-      <div id="topbar" style={{ background: "#022340" }} className="border-bottom">
+      <div id="topbar" style={{ background: "#476b89" }} className="border-bottom">
         <div className="container d-flex justify-content-between align-items-center py-2">
 
           {/* LEFT: Social */}
@@ -28,7 +28,7 @@ export default function Topbar() {
           {/* RIGHT: Flag + Button */}
           <div className="d-flex align-items-center">
             <img
-              src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+              src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg"
               alt="USA Flag"
               width="60"
               style={{ height: "auto", borderRadius: 4 }}
@@ -42,7 +42,7 @@ export default function Topbar() {
               aria-haspopup="dialog"
             >
               <span className="pulse"></span>
-              <span className="blinker">Book Free Consultation</span>
+            <span className="blinker">Réservez gratuitement</span>
             </button>
           </div>
 
@@ -57,29 +57,30 @@ export default function Topbar() {
           aria-modal="true"
           tabIndex="-1"
         >
-          <div className="modal-card">
-            <div className="modal-header">
-              <div>
-                <h3>Free Kidney Consultation</h3>
-                <p className="mb-0">Expert Guidance — Confidential & Free</p>
-              </div>
-              <button
-                className="modal-close"
-                onClick={() => setOpen(false)}
-                aria-label="Close"
-              >
-                ×
-              </button>
-            </div>
+<div className="modal-card">
+  <div className="modal-header">
+    <div>
+      <h3>Consultation rénale gratuite</h3>
+      <p className="mb-0">Gratuite & confidentielle</p>
+    </div>
+    <button
+      className="modal-close"
+      onClick={() => setOpen(false)}
+      aria-label="Close"
+    >
+      ×
+    </button>
+  </div>
 
-            <div className="modal-body">
-              <p className="fw-semibold">
-                Book Your Free Consultation and talk with our doctors.
-              </p>
+  <div className="modal-body">
+    <p className="fw-semibold">
+      Parlez à un médecin.
+    </p>
 
-              <ContactFormWrapper />
-            </div>
-          </div>
+    <ContactFormWrapper />
+  </div>
+</div>
+
         </div>
       )}
     </>

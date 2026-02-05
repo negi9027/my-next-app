@@ -171,58 +171,95 @@ export default function ContactForm() {
     menuPortal: (base) => ({ ...base, zIndex: 9999 }),
   };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      {validationMsg && <div className="alert alert-warning">{validationMsg}</div>}
-      {error && <div className="alert alert-danger">{error}</div>}
+return (
+  <form onSubmit={handleSubmit}>
+    {validationMsg && <div className="alert alert-warning">{validationMsg}</div>}
+    {error && <div className="alert alert-danger">{error}</div>}
 
-      {/* Name */}
-      <div className="mb-2">
-        <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} className="form-control" required />
+    {/* Name */}
+    <div className="mb-2">
+      <input
+        type="text"
+        name="name"
+        placeholder="Nom"
+        value={formData.name}
+        onChange={handleChange}
+        className="form-control"
+        required
+      />
+    </div>
+
+    {/* Email */}
+    <div className="mb-2">
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        value={formData.email}
+        onChange={handleChange}
+        className="form-control"
+        required
+      />
+    </div>
+
+    {/* Phone + Country */}
+    <div className="mb-2 d-flex align-items-center">
+      <div style={{ width: 80, marginRight: 10 }}>
+        <Select
+          options={countryOptions}
+          defaultValue={countryOptions.find((o) => o.value === "+91")}
+          onChange={handleCountrySelect}
+          components={{ SingleValue, Option }}
+          styles={customStyles}
+          menuPortalTarget={typeof document !== "undefined" ? document.body : null}
+          menuPosition="fixed"
+          isSearchable
+        />
       </div>
 
-      {/* Email */}
-      <div className="mb-2">
-        <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} className="form-control" required />
-      </div>
+      <input
+        type="tel"
+        name="phone"
+        placeholder="Téléphone"
+        value={formData.phone}
+        onChange={handleChange}
+        className="form-control"
+      />
+    </div>
 
-      {/* Phone + Country (one row) */}
-      <div className="mb-2 d-flex align-items-center">
-        <div style={{ width: 80, marginRight: 10 }}>
-          <Select
-            options={countryOptions}
-            defaultValue={countryOptions.find((o) => o.value === "+91")}
-            onChange={handleCountrySelect}
-            components={{ SingleValue, Option }}
-            styles={customStyles}
-            menuPortalTarget={typeof document !== "undefined" ? document.body : null}
-            menuPosition="fixed"
-            isSearchable
-          />
-        </div>
+    {/* Disease */}
+    <div className="mb-2">
+      <select
+        name="disease"
+        value={formData.disease}
+        onChange={handleChange}
+        className="form-select"
+      >
+        <option value="">Maladie (optionnel)</option>
+        <option value="parkinson">Parkinson</option>
+        <option value="arthrites">Arthrite</option>
+        <option value="cancer">Cancer</option>
+        <option value="kidney-disease">Maladie rénale</option>
+      </select>
+    </div>
 
-        <input type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} className="form-control" />
-      </div>
+    {/* Message */}
+    <div className="mb-2">
+      <textarea
+        name="message"
+        placeholder="Message"
+        value={formData.message}
+        onChange={handleChange}
+        className="form-control"
+        rows="3"
+        required
+      ></textarea>
+    </div>
 
-      {/* Disease */}
-      <div className="mb-2">
-        <select name="disease" value={formData.disease} onChange={handleChange} className="form-select">
-          <option value="">Select Disease (optional)</option>
-          <option value="parkinson">Parkinson</option>
-          <option value="arthrites">Arthrites</option>
-          <option value="cancer">Cancer</option>
-          <option value="kidney-disease">Kidney Disease</option>
-        </select>
-      </div>
+    <button type="submit" className="btn btn-primary w-100" disabled={loading}>
+      {loading ? "Envoi..." : "Envoyer"}
+    </button>
+  </form>
+);
 
-      {/* Message */}
-      <div className="mb-2">
-        <textarea name="message" placeholder="Message" value={formData.message} onChange={handleChange} className="form-control" rows="3" required></textarea>
-      </div>
-
-      <button type="submit" className="btn btn-primary w-100" disabled={loading}>
-        {loading ? "Submitting..." : "Submit"}
-      </button>
-    </form>
-  );
 }

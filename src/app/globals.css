@@ -1,4 +1,7 @@
 /* src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 
 @import "bootstrap-icons/font/bootstrap-icons.css";
@@ -42,8 +45,6 @@ footer a:hover {
   text-decoration: none;
   color: var(--brand) !important;
 }
-
-
 
 /* admin small tweaks */
 .sidebar .nav-link { color: #333; }
