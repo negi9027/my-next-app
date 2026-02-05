@@ -217,7 +217,7 @@ export async function POST(req) {
       </body>`;
 
     // Send email via API
-    const to_admin = 'domestic2@ayurvedickidneycare.com';
+    const to_admin = 'girish.negi.karma@gmail.com';
     const apiUrl = "https://www.karmaayurveda.org/mail_api.php";
 
     const mailData = {
@@ -229,8 +229,14 @@ export async function POST(req) {
       site_name: "Karma Ayurveda"
     };
 
+
     const mailResponse = await sendMailViaApi(apiUrl, mailData);
+    console.log('Mail API Response:', mailResponse);
+    console.log('Mail sent to:', to_admin);
+    console.log('CC:', cc_emails.join(", "));
+    console.log('Subject:', subject_admin);
     const mail_status = mailResponse.status === 'success' ? 1 : 0;
+
 
     // Insert to database
     const media_source = 'Karma Ayurveda International Site';
