@@ -9,6 +9,7 @@ import { testConnection } from "@/lib/db";
 
 const navItems = [
   { href: "/admin", label: "Dashboard", icon: "🏠" },
+  { href: "/admin/home-management", label: "Home Page", icon: "🌐" },
   { href: "/admin/diseases", label: "Diseases", icon: "🩺" },
   { href: "/admin/clinics", label: "Clinics", icon: "🏥" },
   { href: "/admin/blogs", label: "Blogs", icon: "✍️" },
@@ -22,8 +23,8 @@ const navItems = [
 export default async function AdminDashboardLayout({ children }) {
   const cookieName = process.env.COOKIE_NAME || "admin_token";
 
-const hdrs = await headers();
-const cookieHeader = hdrs.get("cookie") || "";
+  const hdrs = await headers();
+  const cookieHeader = hdrs.get("cookie") || "";
 
 
   let token = null;
